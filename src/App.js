@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Nominee } from './components/Nominee';
+import { SearchBar } from './components/SearchBar';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [term, setTerm] = useState('');
+  const [nominations, setNominations] = useState([]);
+
+  const handleChange = e => {
+    setTerm(e.target.value);
+  }
+
+  const addNomination = e => {
+
+  }
+
+  const removeNomination = e => {
+    
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-body">
+      <span style={{textAlign: 'center'}}>The Shoppies: Movie awards for entreprenuers</span>
+      <SearchBar handleChange={handleChange} term={term}/>
+      <div className="flex-container">
+        <div className="container">
+          <h2>Results {term && `for "${term}"`}</h2>
+        </div>
+        <div className="container">
+          <h2>Nominations</h2>
+        </div>
+      </div>
     </div>
   );
 }
