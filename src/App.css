@@ -1,5 +1,5 @@
 .app-body {
-  width: 70%;
+  width: 80%;
   margin: auto;
 }
 
@@ -8,7 +8,7 @@
   border-radius: 5px;
   box-shadow: 0px 1px 3px #ddd;
   padding: 5px 15px;
-  margin: auto;
+  margin: 0px auto;
   width: 40%;
 }
 
@@ -50,6 +50,13 @@
 .button{
   border: 0;
   border-radius: 5px;
-  background-color: rgb(9, 11, 20);
+  background-color: rgb(180, 211, 194);
   padding: 5px 15px;
+  color: #000;
+  margin: 0px 10px;
+}
+
+.nominee-container{
+  margin: 10px 0px;
+  list-style: 1.5;
 }

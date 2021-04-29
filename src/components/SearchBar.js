@@ -6,7 +6,7 @@ export const SearchBar = props => {
         <div className="searchbar-container">
             <h3>Movie Title</h3>
             <div className="input-container">
-                <i class="fa fa-search search-icon"></i>
+                <i className="fa fa-search search-icon"></i>
                 <input placeholder="Enter movie title.." value={props.term}
                 className="input" onChange={props.handleChange}/>
             </div>
