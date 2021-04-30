@@ -54,9 +54,48 @@
   padding: 5px 15px;
   color: #000;
   margin: 0px 10px;
+  cursor: pointer;
+  transition: filter 0.5s;
+}
+
+.button:hover{
+  filter: brightness(95%);
+}
+
+.button:disabled{
+  opacity: 0.7;
+  cursor: default;
+  filter: none;
 }
 
 .nominee-container{
   margin: 10px 0px;
   list-style: 1.5;
+  animation: move-left 0.5s forwards;
+}
+
+.nominations-banner{
+  position: fixed;
+  border: 0.5px solid #ccc;
+  box-shadow: 1px 1px 4px #ddd;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: max-content;
+  top: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0;
+  animation: fade-down 0.5s forwards;
+  display: none;
+}
+
+@keyframes fade-down{
+  from {opacity: 0; transform: translateY(-100px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes move-left {
+  from {transform: translateY(30px);}
+  to {transform: translateY(0);}
 }

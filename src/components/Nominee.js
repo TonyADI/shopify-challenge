@@ -8,8 +8,8 @@ export const Nominee = props => {
     return (
         <div className="nominee-container">
             <span>{props.nominee.title} ({props.nominee.year})</span>
-            <button className="button" onClick={handleClick}>
-                Nominate</button>
+            <button id={props.id} className="button" onClick={handleClick}>
+                {props.action}</button>
         </div>
     )
 }

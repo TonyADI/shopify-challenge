@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NomineeList } from './components/NomineeList';
 import { SearchBar } from './components/SearchBar';
 import { retrieveMovies } from './utilities/OMDB';
 import './App.css';
-import { Nominee } from './components/Nominee';
 
 const App = () => {
   const [term, setTerm] = useState('');
@@ -16,25 +15,50 @@ const App = () => {
   }
 
   const addNomination = nominee => {
-    setNominations([...nominations, nominee]);
+    if(nominations.length < 5){
+      if(nominations.findIndex(nomination => nomination.id === nominee.id) === -1){
+        setNominations([...nominations, nominee]);
+        document.getElementById(nominee.id).disabled = true;
+      }
+      else{
+        document.getElementById(nominee.id).disabled = true;
+      }
+    }
   }
 
-  const removeNomination = e => {
-
+  const removeNomination = nominee => {
+    const filteredNominations = nominations.filter(nomination => 
+      nomination.id !== nominee.id);
+    setNominations([...filteredNominations]);    
+    document.getElementById(nominee.id).disabled = false;
   }
+
+  useEffect(() => {
+    if(nominations.length === 5){
+      document.querySelector('.nominations-banner').style.display = 'block';
+    }
+    else{
+      document.querySelector('.nominations-banner').style.display = 'none';
+    }
+  }, [nominations])
 
   return (
     <div className="app-body">
-      <span style={{textAlign: 'center'}}>The Shoppies: Movie awards for entreprenuers</span>
+      <div className="nominations-banner">You have selected the maximum 
+      number of nominees</div>
+      <div><span>The Shoppies: Movie awards for 
+      entreprenuers</span></div>
       <SearchBar handleChange={handleChange} term={term}/>
       <div className="flex-container">
         <div className="container">
           <h2>Results {term && `for "${term}"`}</h2>
-          <NomineeList nominees={nominees} handleClick={addNomination}/>
+          <NomineeList nominees={nominees} handleClick={addNomination} 
+          action="Nominate"/>
         </div>
         <div className="container">
           <h2>Nominations</h2>
-          <NomineeList nominees={nominations} handleClick={removeNomination}/>
+          <NomineeList nominees={nominations} handleClick={removeNomination}
+          action="Remove"/>
         </div>
       </div>
     </div>
