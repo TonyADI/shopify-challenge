@@ -5,11 +5,11 @@ import '../App.css';
 export const NomineeList = props => {
     return (
         <div>
-            <ul>{props.nominees ? props.nominees.map(movie => {
-                return <li><Nominee nominee={movie} key={movie.id}
-                handleClick={props.handleClick} id={movie.id} 
+            <ul>{props.nominees ? props.nominees.length ? 
+            props.nominees.map(movie => {return <li><Nominee nominee={movie} 
+                key={movie.id} handleClick={props.handleClick}
                 action={props.action}/></li>
-            }) : null}
+            }) : <div>No results found. Try a different movie.</div>: null}
             </ul>
         </div>
     )

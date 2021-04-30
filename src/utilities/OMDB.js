@@ -6,6 +6,7 @@ export const retrieveMovies = async title => {
             return jsonResponse.Search ? jsonResponse.Search.map(movie => {
                 return {title: movie.Title,
                         year: movie.Year,
+                        imageUrl: movie.Poster,
                         id: movie.imdbID}
             }) : []
 

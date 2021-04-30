@@ -3,6 +3,16 @@
   margin: auto;
 }
 
+.content-section{
+  margin-top: 50px;
+  opacity: 0;
+  animation: fade-down 0.5s forwards;
+}
+
+.content-section .hero-title{
+  text-align: center;
+}
+
 .app-body .container{
   border: 0.5px solid #ccc;
   border-radius: 5px;
@@ -22,8 +32,13 @@
 .searchbar-container{
   width: 94.5%;
   margin: 20px auto;
+  padding: 0px 20px 20px;
   box-sizing: border-box;
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px #ddd;
 }
+
 
 .searchbar-container .input-container{
   border: 0.5px solid #ccc;
@@ -35,7 +50,7 @@
 
 .searchbar-container .input{
   border: 0;
-  width: 95%;
+  width: 85%;
 }
 
 .searchbar-container .input:focus{
@@ -50,9 +65,9 @@
 .button{
   border: 0;
   border-radius: 5px;
-  background-color: rgb(180, 211, 194);
+  background-color: rgb(62, 179, 218);
   padding: 5px 15px;
-  color: #000;
+  color: #fff;
   margin: 0px 10px;
   cursor: pointer;
   transition: filter 0.5s;
@@ -70,8 +85,25 @@
 
 .nominee-container{
   margin: 10px 0px;
-  list-style: 1.5;
+  line-height: 1.5;
   animation: move-left 0.5s forwards;
+  height: max-content;
+}
+
+.nominee-container .movie-poster{
+  height: 30px;
+  min-width: 30px;
+  width: auto;
+  float: left;
+  margin: 0 10px;
+}
+
+ul{
+  padding: 0;
+}
+
+ul li{
+  list-style: none;
 }
 
 .nominations-banner{
@@ -98,4 +130,16 @@
 @keyframes move-left {
   from {transform: translateY(30px);}
   to {transform: translateY(0);}
+}
+
+@media only screen and (max-width: 720px){
+  .app-body .container{
+    width: 100%;
+    margin: 20px;
+  }
+  .flex-container{
+    
+  justify-content: space-between;
+  flex-wrap: wrap;
+  }
 }

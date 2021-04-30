@@ -46,19 +46,21 @@ const App = () => {
     <div className="app-body">
       <div className="nominations-banner">You have selected the maximum 
       number of nominees</div>
-      <div><span>The Shoppies: Movie awards for 
-      entreprenuers</span></div>
-      <SearchBar handleChange={handleChange} term={term}/>
-      <div className="flex-container">
-        <div className="container">
-          <h2>Results {term && `for "${term}"`}</h2>
-          <NomineeList nominees={nominees} handleClick={addNomination} 
-          action="Nominate"/>
-        </div>
-        <div className="container">
-          <h2>Nominations</h2>
-          <NomineeList nominees={nominations} handleClick={removeNomination}
-          action="Remove"/>
+      <div className="content-section">
+        <h1 className="hero-title">The Shoppies: Movie awards for 
+        entreprenuers</h1>
+        <SearchBar handleChange={handleChange} term={term}/>
+        <div className="flex-container">
+          <div className="container">
+            <h2>Results {term && `for "${term}"`}</h2>
+            <NomineeList nominees={nominees} handleClick={addNomination} 
+            action="Nominate"/>
+          </div>
+          <div className="container">
+            <h2>Nominations</h2>
+            <NomineeList nominees={nominations} handleClick={removeNomination}
+            action="Remove"/>
+          </div>
         </div>
       </div>
     </div>
