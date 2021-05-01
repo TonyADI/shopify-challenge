@@ -36,6 +36,13 @@ const App = () => {
     document.getElementById(nominee.id).disabled = false;
   }
 
+  // Checks if the user made previous nominations and readds them to the list.
+  useEffect(() => {
+    const previousNominations = JSON.parse(localStorage.getItem('nominations')) 
+    || [];
+    setNominations([...previousNominations]);
+  }, [])
+
   // Display banner when five nominees have been selected and remove otherwise.
   useEffect(() => {
     if(nominations.length === 5){
@@ -44,6 +51,12 @@ const App = () => {
     else{
       document.querySelector('.nominations-banner').style.display = 'none';
     }
+  }, [nominations])
+
+  // Saves nomination list to local storage everytime the user alters it.
+  useEffect(() => {
+    console.log(nominations)
+    localStorage.setItem('nominations', JSON.stringify(nominations));
   }, [nominations])
 
   return (
