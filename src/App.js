@@ -14,8 +14,10 @@ const App = () => {
     retrieveMovies(e.target.value).then(movies => setNominees(movies));
   }
 
+  // Add the specified nominee to the nomination list if the list is less than 5.
   const addNomination = nominee => {
     if(nominations.length < 5){
+      // Checks if the nominee is already in the nomination list.
       if(nominations.findIndex(nomination => nomination.id === nominee.id) === -1){
         setNominations([...nominations, nominee]);
         document.getElementById(nominee.id).disabled = true;
@@ -26,6 +28,7 @@ const App = () => {
     }
   }
 
+  // Remove the specified nominee from the nominations list.
   const removeNomination = nominee => {
     const filteredNominations = nominations.filter(nomination => 
       nomination.id !== nominee.id);
@@ -33,6 +36,7 @@ const App = () => {
     document.getElementById(nominee.id).disabled = false;
   }
 
+  // Display banner when five nominees have been selected and remove otherwise.
   useEffect(() => {
     if(nominations.length === 5){
       document.querySelector('.nominations-banner').style.display = 'block';
