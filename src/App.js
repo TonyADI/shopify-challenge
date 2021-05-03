@@ -55,7 +55,6 @@ const App = () => {
 
   // Saves nomination list to local storage everytime the user alters it.
   useEffect(() => {
-    console.log(nominations)
     localStorage.setItem('nominations', JSON.stringify(nominations));
   }, [nominations])
 

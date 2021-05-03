@@ -9,7 +9,7 @@ export const NomineeList = props => {
             props.nominees.map(movie => {return <li><Nominee nominee={movie} 
                 key={movie.id} handleClick={props.handleClick}
                 action={props.action}/></li>
-            }) : <div>No results found. Try a different movie.</div>: null}
+            }) : props.action === 'Nominate' && <div>No results found. Try a different movie.</div>: null}
             </ul>
         </div>
     )
