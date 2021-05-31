@@ -8,10 +8,10 @@ export const Nominee = props => {
     return (
         <div className="nominee-container">
             <img className="movie-poster" src={props.nominee.imageUrl} 
-            alt="poster"/> <div><span>{props.nominee.title} </span> 
-            <span>({props.nominee.year})</span>
+            alt="poster"/> <div className="movie-details"><span>{props.nominee.title} </span> 
+            <span>({props.nominee.year})</span></div>
             <button id={props.nominee.id} className="button" onClick={handleClick}>
-                {props.action}</button></div>
+                {props.action}</button>
         </div>
     )
 }

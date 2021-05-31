@@ -69,6 +69,9 @@
   margin: 0px 10px;
   cursor: pointer;
   transition: filter 0.5s;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .button:hover{
@@ -86,6 +89,7 @@
   line-height: 1.5;
   animation: move-left 0.5s forwards;
   height: max-content;
+  position: relative;
 }
 
 .nominee-container .movie-poster{
@@ -95,6 +99,10 @@
   float: left;
   margin: 0 10px;
   border-radius: 5px;
+}
+
+.nominee-container .movie-details{
+  width: 70%;
 }
 
 ul{
@@ -137,8 +145,16 @@ ul li{
     margin: 20px;
   }
   .flex-container{
-    
-  justify-content: space-between;
-  flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .nominee-container .movie-details{
+    width: 65%;
+  }
+}
+
+@media only screen and (max-width: 450px){
+  .nominee-container .movie-details{
+    width: 55%;
   }
 }
